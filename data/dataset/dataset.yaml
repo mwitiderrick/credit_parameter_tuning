@@ -1,0 +1,18 @@
+# Credit Approval Project
+#
+# In this file, I integrate a source table from the Snowflake
+# database. The source table is an annonymized dataset consisting
+# of credit applications taken from the UCI repository.
+# See here: https://archive.ics.uci.edu/ml/datasets/credit+approval
+
+apiVersion: 1
+
+# Unique name of this dataset which will be used in this project to
+# refer to this dataset
+name: "credit_approval_data"
+type: source
+
+materializations:
+  - type: table
+    target: layer
+    table_name: "credit_approval_data"

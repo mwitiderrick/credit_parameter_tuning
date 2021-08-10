@@ -1,0 +1,78 @@
+# New Project Example
+#
+# Any directory includes an `dataset.yml` will be treated as a dataset
+# project. In this `yaml` file, we will define the attributes of our
+# featureset.
+
+apiVersion: 1
+
+type: featureset
+
+name: "credit_approval_features"
+description: "Anonymous credit card applications"
+
+features:
+  - name: feature_one
+    description: "One hot encoding binary feature. Removes 1 feature"
+    source: feature_one.py
+    environment: requirements.txt
+  - name: feature_two
+    description: "Standardized continuous feature - fill missing values with mean"
+    source: feature_two.py
+    environment: requirements.txt
+  - name: feature_three
+    description: "Renaming continuous feature"
+    source: feature_three.py
+    environment: requirements.txt
+  - name: feature_four
+    description: "Type of categorical features l=0, None=1, u=2, y=3"
+    source: feature_four.py
+    environment: requirements.txt
+  - name: feature_five
+    description: "Type of categorical features None=0, g=1, gg=2, p=3"
+    source: feature_five.py
+    environment: requirements.txt
+  - name: feature_eight
+    description: "Standardized continuous feature"
+    source: feature_eight.py
+    environment: requirements.txt
+  - name: feature_nine
+    description: "One hot encoding binary feature. Removes 1 feature"
+    source: feature_nine.py
+    environment: requirements.txt
+  - name: feature_ten
+    description: "One hot encoding binary feature. Removes 1 feature"
+    source: feature_ten.py
+    environment: requirements.txt
+  - name: feature_eleven
+    description: "Standardized continuous feature"
+    source: feature_eleven.py
+    environment: requirements.txt
+  - name: feature_twelve
+    description: "One hot encoding binary feature. Removes 1 feature"
+    source: feature_twelve.py
+    environment: requirements.txt
+  - name: feature_thirteen
+    description: "Type of categorical features g=0, p=1, s=2"
+    source: feature_thirteen.py
+    environment: requirements.txt
+  - name: feature_fourteen
+    description: "Standardized continuous feature - fill missing value with mean"
+    source: feature_fourteen.py
+    environment: requirements.txt
+  - name: feature_fifteen
+    description: "Standardized continuous feature"
+    source: feature_fifteen.py
+    environment: requirements.txt
+  - name: approved
+    description: "Whether application was approved {'+': 1, '-': 0}"
+    source: approved.py
+    environment: requirements.txt
+
+schema:
+  # All of the features above should include this primary key. It will be used to join the features
+  # together.
+  primary_keys: ["ID"]
+
+materializations:
+  - target: layer
